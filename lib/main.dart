@@ -29,7 +29,20 @@ class MyApp extends StatelessWidget {
               title: Text("Mes recettes"),
             ),
             body: Column(
-              children: [Text("Pizza facile"), Text("Par jaures")],
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    "Pizza facile",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                ),
+                Text("Par jaures",
+                    style: TextStyle(
+                      color: Colors.grey[500],
+                    ))
+              ],
             )));
   }
 }
