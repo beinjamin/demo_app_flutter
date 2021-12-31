@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,27 +30,32 @@ class MyApp extends StatelessWidget {
             appBar: AppBar(
               title: Text("Mes recettes"),
             ),
-            body: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: Text(
-                        "Pizza facile",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
+            body: Column(children: [
+              Row(
+                children: [
+                  Expanded(
+                      child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: Text(
+                          "Pizza facile",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                        ),
                       ),
-                    ),
-                    Text("Par jaures",
-                        style: TextStyle(
-                          color: Colors.grey[500],
-                        ))
-                  ],
-                ),
-                Icon(Icons.favorite, color: Colors.red)
-              ],
-            )));
+                      Text("Par jaures",
+                          style: TextStyle(
+                            color: Colors.grey[500],
+                            fontSize: 16,
+                          ))
+                    ],
+                  )),
+                  Icon(Icons.favorite, color: Colors.red),
+                  Text("55")
+                ],
+              )
+            ])));
   }
 }
