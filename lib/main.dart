@@ -28,20 +28,26 @@ class MyApp extends StatelessWidget {
             appBar: AppBar(
               title: Text("Mes recettes"),
             ),
-            body: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            body: Row(
               children: [
-                Container(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Text(
-                    "Pizza facile",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: Text(
+                        "Pizza facile",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                    ),
+                    Text("Par jaures",
+                        style: TextStyle(
+                          color: Colors.grey[500],
+                        ))
+                  ],
                 ),
-                Text("Par jaures",
-                    style: TextStyle(
-                      color: Colors.grey[500],
-                    ))
+                Icon(Icons.favorite, color: Colors.red)
               ],
             )));
   }
