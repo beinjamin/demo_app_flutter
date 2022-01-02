@@ -37,6 +37,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Widget buttonSection = Container(
+      padding: const EdgeInsets.all(8),
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+        _buildButtonColumn(Colors.blue, Icons.comment, "COMMENTAIRE"),
+        _buildButtonColumn(Colors.blue, Icons.share, "PARTAGER")
+      ]),
+    );
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -57,10 +64,7 @@ class MyApp extends StatelessWidget {
           ),
           body: Column(children: [
             titleSection,
-            Row(children: [
-              _buildButtonColumn(Colors.blue, Icons.comment, "COMMENTAIRE"),
-              _buildButtonColumn(Colors.blue, Icons.share, "PARTAGER")
-            ])
+            buttonSection,
           ])),
     );
   }
