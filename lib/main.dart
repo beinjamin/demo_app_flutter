@@ -55,7 +55,16 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             title: Text("Mes recettes"),
           ),
-          body: Column(children: [titleSection])),
+          body: Column(children: [
+            titleSection,
+            _buildButtonColumn(Colors.black, Icons.access_alarm, "Alarm")
+          ])),
     );
   }
+}
+
+Column _buildButtonColumn(Color color, IconData icon, String label) {
+  return Column(
+    children: [Icon(icon, color: color), Text(label)],
+  );
 }
