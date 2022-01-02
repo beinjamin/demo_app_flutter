@@ -7,36 +7,35 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  Widget titleSection = Container(
-      padding: const EdgeInsets.all(8),
-      child: Row(
-        children: [
-          Expanded(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: Text(
-                  "Pizza facile",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                ),
-              ),
-              Text("Par jaures",
-                  style: TextStyle(
-                    color: Colors.grey[500],
-                    fontSize: 16,
-                  ))
-            ],
-          )),
-          Icon(Icons.favorite, color: Colors.red),
-          Text("55")
-        ],
-      ));
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Widget titleSection = Container(
+        padding: const EdgeInsets.all(8),
+        child: Row(
+          children: [
+            Expanded(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    "Pizza facile",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                ),
+                Text("Par jaures",
+                    style: TextStyle(
+                      color: Colors.grey[500],
+                      fontSize: 16,
+                    ))
+              ],
+            )),
+            Icon(Icons.favorite, color: Colors.red),
+            Text("55")
+          ],
+        ));
     Widget buttonSection = Container(
       padding: const EdgeInsets.all(8),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
@@ -44,6 +43,15 @@ class MyApp extends StatelessWidget {
         _buildButtonColumn(Colors.blue, Icons.share, "PARTAGER")
       ]),
     );
+
+    Widget descriptionSection = Container(
+      padding: const EdgeInsets.all(32),
+      child: Text(
+        "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+        softWrap: true,
+      ),
+    );
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -62,10 +70,8 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             title: Text("Mes recettes"),
           ),
-          body: Column(children: [
-            titleSection,
-            buttonSection,
-          ])),
+          body: Column(
+              children: [titleSection, buttonSection, descriptionSection])),
     );
   }
 }
