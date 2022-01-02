@@ -57,7 +57,10 @@ class MyApp extends StatelessWidget {
           ),
           body: Column(children: [
             titleSection,
-            _buildButtonColumn(Colors.black, Icons.access_alarm, "Alarm")
+            Row(children: [
+              _buildButtonColumn(Colors.blue, Icons.comment, "COMMENTAIRE"),
+              _buildButtonColumn(Colors.blue, Icons.share, "PARTAGER")
+            ])
           ])),
     );
   }
@@ -65,6 +68,18 @@ class MyApp extends StatelessWidget {
 
 Column _buildButtonColumn(Color color, IconData icon, String label) {
   return Column(
-    children: [Icon(icon, color: color), Text(label)],
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Container(
+        padding: const EdgeInsets.only(bottom: 8),
+        child: Icon(icon, color: color),
+      ),
+      Text(label,
+          style: TextStyle(
+            color: color,
+            fontWeight: FontWeight.w400,
+            fontSize: 14,
+          ))
+    ],
   );
 }
