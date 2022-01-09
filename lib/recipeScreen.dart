@@ -1,3 +1,4 @@
+import 'package:demo_app_flutter/favoriteWidget.dart';
 import 'package:flutter/material.dart';
 
 class RecipeScreen extends StatelessWidget {
@@ -25,8 +26,7 @@ class RecipeScreen extends StatelessWidget {
                     ))
               ],
             )),
-            Icon(Icons.favorite, color: Colors.red),
-            Text("55")
+            FavoriteWidget()
           ],
         ));
     Widget buttonSection = Container(
