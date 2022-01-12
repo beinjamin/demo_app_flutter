@@ -48,8 +48,17 @@ class RecipeScreen extends StatelessWidget {
         appBar: AppBar(
           title: Text("Mes recettes"),
         ),
-        body: Column(
-            children: [titleSection, buttonSection, descriptionSection]));
+        body: ListView(children: [
+          Image.asset(
+            'images/logo.png',
+            width: 400,
+            height: 140,
+            fit: BoxFit.cover,
+          ),
+          titleSection,
+          buttonSection,
+          descriptionSection
+        ]));
   }
 }
 
