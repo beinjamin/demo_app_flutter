@@ -49,12 +49,12 @@ class RecipeScreen extends StatelessWidget {
           title: Text("Mes recettes"),
         ),
         body: ListView(children: [
-          Image.asset(
-            'images/logo.png',
+          /*Image.asset(
+            'images/pizza.png',
             width: 400,
-            height: 140,
+            height: 240,
             fit: BoxFit.cover,
-          ),
+          ),*/
           titleSection,
           buttonSection,
           descriptionSection
