@@ -1,7 +1,15 @@
-import 'package:demo_app_flutter/favoriteWidget.dart';
 import 'package:flutter/material.dart';
 
+import 'package:demo_app_flutter/favoriteWidget.dart';
+import 'package:demo_app_flutter/recipe.dart';
+
 class RecipeScreen extends StatelessWidget {
+  const RecipeScreen({
+    Key? key,
+    required this.recipe,
+  }) : super(key: key);
+
+  final Recipe recipe;
   @override
   Widget build(BuildContext context) {
     Widget titleSection = Container(
