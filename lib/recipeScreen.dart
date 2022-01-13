@@ -23,11 +23,11 @@ class RecipeScreen extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Text(
-                    "Pizza facile",
+                    "recipe.title",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                 ),
-                Text("Par jaures",
+                Text("recipe.user",
                     style: TextStyle(
                       color: Colors.grey[500],
                       fontSize: 16,
@@ -48,7 +48,7 @@ class RecipeScreen extends StatelessWidget {
     Widget descriptionSection = Container(
       padding: const EdgeInsets.all(32),
       child: Text(
-        "jaures beinjamin bbdsfsdfsdfsdf",
+        "recipe.description",
         softWrap: true,
       ),
     );
@@ -57,12 +57,12 @@ class RecipeScreen extends StatelessWidget {
           title: Text("Mes recettes"),
         ),
         body: ListView(children: [
-          /*Image.asset(
-            'images/pizza.png',
+          Image.network(
+            'https://assets.afcdn.com/recipe/20160519/15342_w600.jpg',
             width: 400,
             height: 240,
             fit: BoxFit.cover,
-          ),*/
+          ),
           titleSection,
           buttonSection,
           descriptionSection

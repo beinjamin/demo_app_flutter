@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:demo_app_flutter/recipe.dart';
 import 'package:demo_app_flutter/recipeScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: RecipeScreen(),
+      home: RecipeScreen(
+          recipe: Recipe(
+        "Pizza facile",
+        "Par jaures",
+        "",
+        "jasfadfasdasdasdasdasdasdasd",
+        "true",
+        "1",
+      )),
     );
   }
 }
