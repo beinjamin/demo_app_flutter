@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:demo_app_flutter/favoriteWidget.dart';
 import 'package:demo_app_flutter/recipe.dart';
+import 'package:cached_network_image/cached_network_image.dart'
 
 class RecipeScreen extends StatelessWidget {
   const RecipeScreen({
@@ -57,26 +58,18 @@ class RecipeScreen extends StatelessWidget {
           title: Text("Mes recettes"),
         ),
         body: ListView(children: [
-          Stack(
-            children: [
-              Container(
-                width: 600,
-                height: 240,
-                child: Center(child: CircularProgressIndicator()),
-              ),
-              FadeInImage.memoryNetwork(
-                placeholder: kTransparentImage,
-                image:
-                    'https://assets.afcdn.com/recipe/20160519/15342_w600.jpg',
-                width: 400,
-                height: 240,
-                fit: BoxFit.cover,
-              )
-            ],
+          CachedNetworkImage(
+            
+            image: 'https://assets.afcdn.com/recipe/20160519/15342_w600.jpg',
+            placeholder: (context, url) => Center(child:CircularProgressIndicator()),
+            errorWidget: (context, url, error) => Icon(Icons.error),
+            width: 600,
+            height: 240,
+            fit: BoxFit.cover,
           ),
           titleSection,
           buttonSection,
-          descriptionSection
+          descriptionSection,
         ]));
   }
 }
