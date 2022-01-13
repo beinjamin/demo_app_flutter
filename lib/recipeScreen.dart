@@ -57,11 +57,22 @@ class RecipeScreen extends StatelessWidget {
           title: Text("Mes recettes"),
         ),
         body: ListView(children: [
-          Image.network(
-            'https://assets.afcdn.com/recipe/20160519/15342_w600.jpg',
-            width: 400,
-            height: 240,
-            fit: BoxFit.cover,
+          Stack(
+            children: [
+              Container(
+                width: 600,
+                height: 240,
+                child: Center(child: CircularProgressIndicator()),
+              ),
+              FadeInImage.memoryNetwork(
+                placeholder: kTransparentImage,
+                image:
+                    'https://assets.afcdn.com/recipe/20160519/15342_w600.jpg',
+                width: 400,
+                height: 240,
+                fit: BoxFit.cover,
+              )
+            ],
           ),
           titleSection,
           buttonSection,
