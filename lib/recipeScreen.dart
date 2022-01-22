@@ -36,8 +36,8 @@ class RecipeScreen extends StatelessWidget {
               ],
             )),
             FavoriteWidget(
-              isFavorited: true,
-              favoriteCount: 54,
+              isFavorited: recipe.isFavorite,
+              favoriteCount: recipe.favoriteCount,
             )
           ],
         ));
@@ -62,7 +62,7 @@ class RecipeScreen extends StatelessWidget {
         ),
         body: ListView(children: [
           CachedNetworkImage(
-            imageUrl: 'https://assets.afcdn.com/recipe/20160519/15342_w600.jpg',
+            imageUrl: recipe.imageUrl,
             placeholder: (context, url) =>
                 Center(child: CircularProgressIndicator()),
             errorWidget: (context, url, error) => Icon(Icons.error),

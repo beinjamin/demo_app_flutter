@@ -19,12 +19,12 @@ class MyApp extends StatelessWidget {
       ),
       home: RecipeScreen(
           recipe: Recipe(
-        "Pizza facile",
+        "Nourriture",
         "Par jaures",
-        "",
+        "https://assets.afcdn.com/recipe/20160519/15342_w600.jpg",
         "jasfadfasdasdasdasdasdasdasd",
-        "true",
-        "1",
+        false,
+        50,
       )),
     );
   }
