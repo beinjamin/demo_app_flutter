@@ -4,7 +4,7 @@ class Recipe {
   String imageUrl;
   String description;
   String isFavorite;
-  String _favoriteCount;
+  int _favoriteCount;
 
   Recipe(this.title, this.user, this.imageUrl, this.description,
       this.isFavorite, this._favoriteCount);

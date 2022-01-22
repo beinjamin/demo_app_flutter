@@ -24,11 +24,11 @@ class RecipeScreen extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Text(
-                    "recipe.title",
+                    recipe.title,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                 ),
-                Text("recipe.user",
+                Text(recipe.user,
                     style: TextStyle(
                       color: Colors.grey[500],
                       fontSize: 16,
@@ -36,8 +36,8 @@ class RecipeScreen extends StatelessWidget {
               ],
             )),
             FavoriteWidget(
-              isFavorited: false,
-              favoriteCount: 44,
+              isFavorited: true,
+              favoriteCount: 54,
             )
           ],
         ));
@@ -52,7 +52,7 @@ class RecipeScreen extends StatelessWidget {
     Widget descriptionSection = Container(
       padding: const EdgeInsets.all(32),
       child: Text(
-        "recipe.description",
+        recipe.description,
         softWrap: true,
       ),
     );
