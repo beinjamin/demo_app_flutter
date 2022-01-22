@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
 
 class FavoriteWidget extends StatefulWidget {
-  _FavoriteWidgetState createState() => _FavoriteWidgetState();
+  final bool isFavorited;
+  final int favoriteCount;
+
+  const FavoriteWidget({
+    Key? key,
+    required this.isFavorited,
+    required this.favoriteCount,
+  }) : super(key: key);
+
+  _FavoriteWidgetState createState() => _FavoriteWidgetState(
+        this.isFavorited,
+        this.favoriteCount,
+      );
 }
 
 class _FavoriteWidgetState extends State<FavoriteWidget> {
-  bool _isFavorited = true;
-  int _favoriteCount = 1;
+  bool _isFavorited = false;
+  int _favoriteCount = 41;
+  _FavoriteWidgetState(this._isFavorited, this._favoriteCount);
 
   void _toggleFavorite() {
     setState(() {
@@ -15,7 +28,7 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
         _favoriteCount -= 1;
       } else {
         _isFavorited = true;
-        _favoriteCount += 2;
+        _favoriteCount += 1;
       }
     });
   }
