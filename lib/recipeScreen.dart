@@ -1,7 +1,18 @@
-import 'package:demo_app_flutter/favoriteWidget.dart';
+import 'package:demo_app_flutter/favoriteChangeNotifier.dart';
 import 'package:flutter/material.dart';
 
+import 'package:demo_app_flutter/favoriteWidget.dart';
+import 'package:demo_app_flutter/recipe.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:provider/provider.dart';
+
 class RecipeScreen extends StatelessWidget {
+  const RecipeScreen({
+    Key? key,
+    required this.recipe,
+  }) : super(key: key);
+
+  final Recipe recipe;
   @override
   Widget build(BuildContext context) {
     Widget titleSection = Container(
@@ -15,18 +26,19 @@ class RecipeScreen extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Text(
-                    "Pizza facile",
+                    recipe.title,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                 ),
-                Text("Par jaures",
+                Text(recipe.user,
                     style: TextStyle(
                       color: Colors.grey[500],
                       fontSize: 16,
                     ))
               ],
             )),
-            FavoriteWidget()
+            FavoriteIconWidget(),
+            FavoriteTextWidget()
           ],
         ));
     Widget buttonSection = Container(
@@ -40,25 +52,32 @@ class RecipeScreen extends StatelessWidget {
     Widget descriptionSection = Container(
       padding: const EdgeInsets.all(32),
       child: Text(
-        "jaures beinjamin bbdsfsdfsdfsdf",
+        recipe.description,
         softWrap: true,
       ),
     );
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Mes recettes"),
-        ),
-        body: ListView(children: [
-          Image.asset(
-            'images/logo.png',
-            width: 400,
-            height: 140,
-            fit: BoxFit.cover,
+    return ChangeNotifierProvider(
+      create: (context) =>
+          FavoriteChangeNotifier(recipe.isFavorite, recipe.favoriteCount),
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text("Mes recettes"),
           ),
-          titleSection,
-          buttonSection,
-          descriptionSection
-        ]));
+          body: ListView(children: [
+            CachedNetworkImage(
+              imageUrl: recipe.imageUrl,
+              placeholder: (context, url) =>
+                  Center(child: CircularProgressIndicator()),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+            ),
+            titleSection,
+            buttonSection,
+            descriptionSection,
+          ])),
+    );
   }
 }
 

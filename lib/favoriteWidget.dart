@@ -1,37 +1,48 @@
+import 'package:demo_app_flutter/favoriteChangeNotifier.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class FavoriteWidget extends StatefulWidget {
-  _FavoriteWidgetState createState() => _FavoriteWidgetState();
+class FavoriteIconWidget extends StatefulWidget {
+  _FavoriteIconWidgetState createState() => _FavoriteIconWidgetState();
 }
 
-class _FavoriteWidgetState extends State<FavoriteWidget> {
-  bool _isFavorited = true;
-  int _favoriteCount = 1;
+class _FavoriteIconWidgetState extends State<FavoriteIconWidget> {
+  late bool _isFavorited;
 
-  void _toggleFavorite() {
+  void _toggleFavorite(FavoriteChangeNotifier _notifier) {
     setState(() {
       if (_isFavorited) {
         _isFavorited = false;
-        _favoriteCount -= 1;
       } else {
         _isFavorited = true;
-        _favoriteCount += 2;
       }
+
+      _notifier.isFavorite = _isFavorited;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        IconButton(
-          icon:
-              _isFavorited ? Icon(Icons.favorite) : Icon(Icons.favorite_border),
-          color: Colors.red,
-          onPressed: _toggleFavorite,
-        ),
-        Text('$_favoriteCount')
-      ],
+    FavoriteChangeNotifier _notifier =
+        Provider.of<FavoriteChangeNotifier>(context);
+    _isFavorited = _notifier.isFavorited;
+    return IconButton(
+      icon: _isFavorited ? Icon(Icons.favorite) : Icon(Icons.favorite_border),
+      color: Colors.red,
+      onPressed: () => _toggleFavorite(_notifier),
     );
+  }
+}
+
+class FavoriteTextWidget extends StatefulWidget {
+  _FavoriteTextWidgetState createState() => _FavoriteTextWidgetState();
+}
+
+class _FavoriteTextWidgetState extends State<FavoriteTextWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<FavoriteChangeNotifier>(
+        builder: (context, notifier, _) =>
+            Text(notifier.favoriteCount.toString()));
   }
 }
