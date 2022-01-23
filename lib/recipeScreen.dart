@@ -1,8 +1,10 @@
+import 'package:demo_app_flutter/favoriteChangeNotifier.dart';
 import 'package:flutter/material.dart';
 
 import 'package:demo_app_flutter/favoriteWidget.dart';
 import 'package:demo_app_flutter/recipe.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:provider/provider.dart';
 
 class RecipeScreen extends StatelessWidget {
   const RecipeScreen({
@@ -56,24 +58,28 @@ class RecipeScreen extends StatelessWidget {
         softWrap: true,
       ),
     );
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Mes recettes"),
-        ),
-        body: ListView(children: [
-          CachedNetworkImage(
-            imageUrl: recipe.imageUrl,
-            placeholder: (context, url) =>
-                Center(child: CircularProgressIndicator()),
-            errorWidget: (context, url, error) => Icon(Icons.error),
-            width: 600,
-            height: 240,
-            fit: BoxFit.cover,
+    return ChangeNotifierProvider(
+      create: (context) =>
+          FavoriteChangeNotifier(recipe.isFavorite, recipe.favoriteCount),
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text("Mes recettes"),
           ),
-          titleSection,
-          buttonSection,
-          descriptionSection,
-        ]));
+          body: ListView(children: [
+            CachedNetworkImage(
+              imageUrl: recipe.imageUrl,
+              placeholder: (context, url) =>
+                  Center(child: CircularProgressIndicator()),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+            ),
+            titleSection,
+            buttonSection,
+            descriptionSection,
+          ])),
+    );
   }
 }
 
