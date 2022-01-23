@@ -37,10 +37,8 @@ class RecipeScreen extends StatelessWidget {
                     ))
               ],
             )),
-            FavoriteWidget(
-              isFavorited: recipe.isFavorite,
-              favoriteCount: recipe.favoriteCount,
-            )
+            FavoriteIconWidget(),
+            FavoriteTextWidget()
           ],
         ));
     Widget buttonSection = Container(
