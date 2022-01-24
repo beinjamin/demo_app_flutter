@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-class RecipeListScreem extends StatelessWidget {
+class RecipeListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
