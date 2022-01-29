@@ -14,7 +14,7 @@ class RecipeListScreen extends StatelessWidget {
         false,
         50),
     Recipe(
-        "pizza facile",
+        "Burger Restaurant",
         "Par Jojo premier",
         "https://assets.afcdn.com/recipe/20160519/15342_w600.jpg",
         "faire cui la bannane",
