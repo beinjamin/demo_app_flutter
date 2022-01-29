@@ -4,7 +4,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:demo_app_flutter/recipe.dart';
 import 'package:flutter/material.dart';
 
-class RecipeListScreen extends StatelessWidget {
+class RecipeListScreen extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return RecipeListScreenState();
+  }
+}
+
+class RecipeListScreenState extends State<RecipeListScreen> {
   final List<Recipe> recipes = [
     Recipe(
         "pizza facile",
@@ -72,7 +79,9 @@ class RecipeListScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: recipes.length,
         itemBuilder: (context, index) {
-          return RecipeItemWidget(recipe: recipes[index]);
+          final recipe = recipes[index];
+          return Dismissible(
+              key: key, child: RecipeItemWidget(recipe: recipes[index]));
         },
       ),
     );
