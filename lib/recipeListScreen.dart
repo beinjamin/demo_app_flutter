@@ -81,7 +81,7 @@ class RecipeListScreenState extends State<RecipeListScreen> {
         itemBuilder: (context, index) {
           final recipe = recipes[index];
           return Dismissible(
-              key: key, child: RecipeItemWidget(recipe: recipes[index]));
+              key: Key(recipe.title), child: RecipeItemWidget(recipe: recipe));
         },
       ),
     );
