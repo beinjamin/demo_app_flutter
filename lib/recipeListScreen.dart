@@ -74,14 +74,20 @@ class RecipeListScreenState extends State<RecipeListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Mes Recettes"),
+        title: Text("Mon Dejeuner "),
       ),
       body: ListView.builder(
         itemCount: recipes.length,
         itemBuilder: (context, index) {
           final recipe = recipes[index];
           return Dismissible(
-              key: Key(recipe.title), child: RecipeItemWidget(recipe: recipe));
+              key: Key(recipe.title),
+              onDismissed: (direction) {
+                setState(() {
+                  recipes.removeAt(index);
+                });
+              },
+              child: RecipeItemWidget(recipe: recipe));
         },
       ),
     );
