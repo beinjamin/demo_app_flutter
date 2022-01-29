@@ -87,8 +87,9 @@ class RecipeListScreenState extends State<RecipeListScreen> {
                   recipes.removeAt(index);
                 });
                 ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("${recipe.title}supprime")));
+                    SnackBar(content: Text("${recipe.title} supprime")));
               },
+              background: Container(color: Colors.red),
               child: RecipeItemWidget(recipe: recipe));
         },
       ),
