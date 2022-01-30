@@ -21,32 +21,11 @@ class RecipeListScreenState extends State<RecipeListScreen> {
         false,
         50),
     Recipe(
-        "Burger Restaurant",
-        "Par Jojo premier",
-        "https://assets.afcdn.com/recipe/20160519/15342_w600.jpg",
-        "faire cui la bannane",
-        false,
-        50),
-    Recipe(
         "pizza facile",
         "Par Jojo premier",
         "https://assets.afcdn.com/recipe/20160519/15342_w600.jpg",
         "faire cui la bannane",
-        false,
-        50),
-    Recipe(
-        "pizza facile",
-        "Par Jojo premier",
-        "https://assets.afcdn.com/recipe/20160519/15342_w600.jpg",
-        "faire cui la bannane",
-        false,
-        50),
-    Recipe(
-        "pizza facile",
-        "Par Jojo premier",
-        "https://assets.afcdn.com/recipe/20160519/15342_w600.jpg",
-        "faire cui la bannane",
-        false,
+        true,
         50),
     Recipe(
         "pizza facile",
@@ -54,20 +33,6 @@ class RecipeListScreenState extends State<RecipeListScreen> {
         "https://assets.afcdn.com/recipe/20160519/15342_w600.jpg",
         "faire cui la bannane",
         false,
-        50),
-    Recipe(
-        "pizza facile",
-        "Par hugo",
-        "https://assets.afcdn.com/recipe/20160519/15342_w600.jpg",
-        "faire cui la bannane",
-        false,
-        50),
-    Recipe(
-        "pizza facile",
-        "Par pascal",
-        "https://assets.afcdn.com/recipe/20160519/15342_w600.jpg",
-        "faire cui la bannane",
-        true,
         50)
   ];
   @override
